@@ -1,0 +1,19 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (min-width: 768px) { /* tablets and up */ 
+    .group2 {
+        text-align: right;
+    }
+}
+
+#comments, #comments li {
+    margin: 0;
+    padding: 0;
+}
+ 
+#comments li {
+    list-style: none;
+}
+

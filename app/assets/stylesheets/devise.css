@@ -1,0 +1,69 @@
+
+#log_inp1 {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+    background: #fff url('3.jpg') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+#log_inp2 {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+    background: #fff url('4.jpg') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+#log_inp3 {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+    background: #fff url('2.jpg') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+
+#log_inp1:focus  {
+    background: #fff url('3.jpg') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+#log_inp2:focus  {
+    background: #fff url('4.jpg') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+#log_inp3:focus  {
+    background: #fff url('2.jpg') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+#new_user {
+    background:  fixed center center;
+    border-radius: 5px;
+    border-top: 5px solid #1967BE;
+}
+
+#btn_log {
+    border-radius: 5px;
+}
+
+

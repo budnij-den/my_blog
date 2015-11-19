@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+
+<script data-require="jquery@*" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script data-require="bootstrap@*" data-semver="3.3.5" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css" />
+<link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+
+
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container-fluid" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Спрятанная кнопка для отображения на мобильных устройствах -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Supper Blog</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/articles">All Posts <span class="sr-only">(current)</span></a></li>
+          <li><a href="/articles/new">New Post</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Others <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/terms">Terms</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contacts">Contacts</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+       	<% if user_signed_in? %>
+
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Your account</a></li>
+                <li role="separator" class="divider"></li>
+                <li><%=link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+          </li>
+  			
+  			<% else %>
+
+  			  <li><%= link_to 'Log In', new_user_session_path %></li> |       
+
+  		  <% end %>
+         
+        </ul>
+      </div>
+
+     </div>
+</nav>
+
+	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+<%= yield %>
+
+<footer>
+  <div class="conteiner">
+    <hr />
+    <p class="text-center"> Copyrighting © Henry 2015. All rights resive</p> 
+  </div>
+</footer>
+
+</body>
+</html>
