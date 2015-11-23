@@ -36,8 +36,9 @@ gem 'devise'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   # gem 'debugger'
-  gem "rspec-rails", "~> 2.4"
+  gem "rspec-rails", "~> 3.0"
   gem 'capybara'
+  gem "shoulda-matchers"
 end
 
 group :development do
