@@ -45,12 +45,16 @@
 		       		 </div>
 
 		        <ul class="list-group">
+		        <% if !@comments.nil?%>
 		          <% @comments.limit(5).each do |c|%>
 	              	<li class="list-group-item">
 	            	 <%= link_to "#{truncate(c.body, :length => 50, :separator => ' ')}", article_path(c.article_id)%>   - <em><%= c.author%></em>
 
 	            	</li>
 	              <% end %>
+	            <% else %>
+	            	<li class="list-group-item">Комментариев еще нет</li>
+	            <% end %>
 		        </ul>     
 	        </div>
         </div>

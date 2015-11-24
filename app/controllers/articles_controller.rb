@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   end
   
   def new
-        @comments = Comment.order 'created_at DESC'
+      @comments = Comment.order 'created_at DESC'
   end
 
   def create
