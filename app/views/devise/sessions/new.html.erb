@@ -1,9 +1,9 @@
 
 <div class="conteiner">
   <div class="row">
-      <div class="col-md-5 col-sm-5">
+      <div class="col-md-4 col-sm-4">
       </div>
-      <div class="col-md-2 col-sm-2 col-xs-12">
+      <div class="col-md-4 col-sm-4 col-xs-12">
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -11,13 +11,13 @@
           <br />
           <div class="field">
             <label class="sr-only" for="name">Email</label>
-            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email', id: "log_inp1" %>
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
           </div>
 
 
           <div class="field">
             <label class="sr-only" for="name">Password</label>
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password', id: "log_inp2" %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
           </div>
 
           <% if devise_mapping.rememberable? -%>
@@ -40,7 +40,7 @@
     
     </div>
 
-    <div class="col-md-2 col-sm-2 col-xs-12">
+    <div class="col-md-4 col-sm-4 col-xs-12">
 
     </div>
   </div>

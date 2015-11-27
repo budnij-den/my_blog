@@ -1,33 +1,5 @@
 
-#log_inp1 {
-    width: 100%;
-    height: 42px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-family: Montserrat;
-    padding: 0 20px 0 50px;
-    outline: none;
-    background: #fff url('3.jpg') 20px top no-repeat;
-    background-size: 16px 80px;
-}
-
-#log_inp2 {
-    width: 100%;
-    height: 42px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-family: Montserrat;
-    padding: 0 20px 0 50px;
-    outline: none;
-    background: #fff url('4.jpg') 20px top no-repeat;
-    background-size: 16px 80px;
-}
-
-#log_inp3 {
+#user_email {
     width: 100%;
     height: 42px;
     box-sizing: border-box;
@@ -41,21 +13,70 @@
     background-size: 16px 80px;
 }
 
+#user_username {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+    background: #fff url('3.jpg') 20px top no-repeat;
+    background-size: 16px 80px;
+}
 
-#log_inp1:focus  {
+#user_password {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+    background: #fff url('4.jpg') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+
+
+#user_password_confirmation {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+    background: #fff url('4.jpg') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+#user_username:focus  {
     background: #fff url('3.jpg') 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-#log_inp2:focus  {
+#user_password:focus  {
     background: #fff url('4.jpg') 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
-#log_inp3:focus  {
+#user_email:focus  {
     background: #fff url('2.jpg') 20px bottom no-repeat;
     background-size: 16px 80px;
 }
+
+#user_password_confirmation:focus  {
+    background: #fff url('4.jpg') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
 #new_user {
     background:  fixed center center;
     border-radius: 5px;
