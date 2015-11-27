@@ -1,10 +1,6 @@
 class Article < ActiveRecord::Base
-  validates :title, presence: true, length: { maximum: 2}
-  validates :text, presence:true,  length: {
-    maximum: 4000,
-    tokenizer: lambda { |str| str.split(/\s+/) },
-    too_long: "must have at most %{count} words"
-  }
+  validates :title, presence: true, length: { maximum: 140}
+  validates :text, presence:true,  length: { maximum: 4000}
   has_many :comments
 
   def subject
