@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
+      @error = @article.errors.full_messages
       render action: 'new'
     end
   end

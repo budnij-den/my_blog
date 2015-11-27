@@ -5,6 +5,17 @@
 
 			<h1>New article</h1>
 			<br />
+			<% if !@error.nil? %>
+				<div class="alert alert-danger" role="alert" id="error">
+					
+						<p style="color: #A94446">
+							<% @error.each do |e|%>
+								<%= e %>.
+							<% end %>
+						</p>
+					
+				</div>
+			<% end %>
 
 			<%= form_for :article, url: articles_path do |f| %>
 
@@ -60,3 +71,4 @@
         </div>
 	</div>
 </div>
+
