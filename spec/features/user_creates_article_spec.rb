@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Article Creation" do
-  before(:each) do
+  before(:all) do
     sign_up
   end
   
