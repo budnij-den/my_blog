@@ -1,88 +1,86 @@
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-12">
             
             <!-- heading -->
-			<h1>Latest Posts</h1>
+      <h1>Latest Posts</h1>
+
+        <!-- list of posts -->
+        <% @articles.each do |article| %>
+        <article>
+          <h2><%= link_to "#{article.title}", article_path(article) %> </h2>
+
+          <!-- Иконки над постом -->
+          <div class="row">
+          <div class="group1 col-sm-6 col-md-6">
+            <span class="glyphicon glyphicon-folder-open"></span>  <a href="#">Category</a>
+            <span class="glyphicon glyphicon-bookmark"></span> <a href="#">Tag1</a>, 
+            <a href="#">Tag2</a>, <a href="#">Tag3</a>
+          </div>
+          <div class="group2 col-sm-6 col-md-6">
+            <span class="glyphicon glyphicon-pencil"></span> <%= link_to "#{article.comments.count} Comments", article_path(article) %>
+            <span class="glyphicon glyphicon-time"></span> <%= article.created_at %>
+          </div>
+          </div>
+
+          <hr />
+
+          <img src="http://vw-reutov.ru/wp-content/uploads/2014/04/1.-audi-a8-900%D1%85300.jpg" class="img-responsive">
+
+          <br />
+
+          <!-- Обрезание постов на главной -->
+          <p class="lead">
+          <%= 
+          truncate(article.text, :length => 200, :separator => ' ') do
+            link_to "read more", article_path(article)
+          end
+        %>
+        </p>
 
 
-			    <!-- list of posts -->
-			    <% @articles.each do |article| %>
-			    	<article>
-			    		<h2><%= link_to "#{article.title}", article_path(article) %> </h2>
+        <P>
+          <%= link_to 'Edit', edit_article_path(article) %> |
+          <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?'} %>
+        </P>
 
-			    		<!-- Иконки над постом -->
-			    		<div class="row">
-							<div class="group1 col-sm-6 col-md-6">
-		                        <span class="glyphicon glyphicon-folder-open"></span>  <a href="#">Category</a>
-		                          <span class="glyphicon glyphicon-bookmark"></span> <a href="#">Tag1</a>, 
-		                        <a href="#">Tag2</a>, <a href="#">Tag3</a>
-		                    </div>
-		                    <div class="group2 col-sm-6 col-md-6">
-		                        <span class="glyphicon glyphicon-pencil"></span> <%= link_to "#{article.comments.count} Comments", article_path(article) %>                             
-		                          <span class="glyphicon glyphicon-time"></span> <%= article.created_at %>                         
-		                    </div>
-			    		</div>
+        <hr />
+      </article>
+      <% end %>
 
-			    		<hr />
-
-						<img src="http://vw-reutov.ru/wp-content/uploads/2014/04/1.-audi-a8-900%D1%85300.jpg" class="img-responsive">
-
-						<br />
-
-						<!-- Обрезание постов на главной -->
-						<p class="lead">
-						<%= 
-							truncate(article.text, :length => 200, :separator => ' ') do
-								link_to "read more", article_path(article)
-							end
-						%>
-						</p>
-
-
-						<P>
-
-							<%= link_to 'Edit', edit_article_path(article) %> |
-							<%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?'} %>
-						</P>
-					
-						<hr />
-					</article>
-				<% end %>
-
-				<!-- pager -->
-	            <ul class="pager"> 
-	                <li class="previous">
-	                    <a href="#">← Older</a>
-	                </li> 
-	                <li class="next">
-	                    <a href="#">Newer →</a>
-	                </li> 
-	            </ul>
+        <!-- pager -->
+          <ul class="pager"> 
+              <li class="previous">
+                  <a href="#">← Older</a>
+              </li> 
+              <li class="next">
+                  <a href="#">Newer →</a>
+              </li> 
+          </ul>
         </div>
 
-		<div class="col-md-4 col-sm-4 col-xs-12">
-        	<div class="well text-center">
-         		<p class="lead">
-	            	Don't want to miss updates?  Please click to bellow button!
-	          	</p>
-	          	<button class="btn btn-primary btn-lg">Subscribe to my feed</button>
-	        </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="well text-center">
+         <p class="lead">
+            Don't want to miss updates?  Please click to bellow button!
+          </p>
+          <button class="btn btn-primary btn-lg">Subscribe to my feed</button>
+      </div>
 
-	        <div class="panel panel-default">
-	        	<div class="panel-heading">
-	            	<h4>Latest Comments</h4>
-	       		 </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>Latest Comments</h4>
+            </div>
 
-	        <ul class="list-group">
-	          <% @comments.limit(5).each do |c|%>
-              	<li class="list-group-item">
-            	 <%= link_to "#{truncate(c.body, :length => 50, :separator => ' ')}", article_path(c.article_id)%>   - <em><%= c.author%></em>
+          <ul class="list-group">
+            <% @comments.limit(5).each do |c|%>
+                <li class="list-group-item">
+               <%= link_to "#{truncate(c.body, :length => 50, :separator => ' ')}", article_path(c.article_id)%>   - <em><%= c.author%></em>
 
-            	</li>
+              </li>
               <% end %>
-	        </ul>     
+          </ul>     
         </div>
-	</div><!—- /.row -—>
+  </div><!—- /.row -—>
 </div>

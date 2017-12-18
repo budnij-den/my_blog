@@ -1,18 +1,18 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-12">
             
             <!-- heading -->
-			<h1>Latest Posts</h1>	
+      <h1>Latest Posts</h1>  
 
-	        <!-- list of posts -->
+          <!-- list of posts -->
 
-	    	<article>
-	    		<h2><%= @article.title %> </h2>
+        <article>
+          <h2><%= @article.title %> </h2>
 
-	    		<!-- Иконки над постом -->
-	    		<div class="row">
-					<div class="group1 col-sm-6 col-md-6">
+          <!-- Иконки над постом -->
+          <div class="row">
+          <div class="group1 col-sm-6 col-md-6">
                         <span class="glyphicon glyphicon-folder-open"></span>  <a href="#">Category</a>
                           <span class="glyphicon glyphicon-bookmark"></span> <a href="#">Tag1</a>, 
                         <a href="#">Tag2</a>, <a href="#">Tag3</a>
@@ -21,92 +21,92 @@
                         <span class="glyphicon glyphicon-pencil"></span> <%= link_to "#{@article.comments.count} Comments", article_path %>                             
                           <span class="glyphicon glyphicon-time"></span> <%= @article.created_at %>                         
                     </div>
-	    		</div>
+          </div>
 
-	    		<hr />
+          <hr />
 
-				<img src="http://vw-reutov.ru/wp-content/uploads/2014/04/1.-audi-a8-900%D1%85300.jpg" class="img-responsive">
+        <img src="http://vw-reutov.ru/wp-content/uploads/2014/04/1.-audi-a8-900%D1%85300.jpg" class="img-responsive">
 
-				<br />
+        <br />
 
-				<!-- Обрезание постов на главной -->
-				<p >
-			   		<%= @article.text%>
-				</p>
+        <!-- Обрезание постов на главной -->
+        <p >
+             <%= @article.text%>
+        </p>
 
 
-				<P>
+        <P>
 
-					<%= link_to 'Edit', edit_article_path(@article) %> |
-					<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?'} %>
-				</P>
-			
-				<hr />
-			</article>
-			<!-- Pager -->
+          <%= link_to 'Edit', edit_article_path(@article) %> |
+          <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?'} %>
+        </P>
+      
+        <hr />
+      </article>
+      <!-- Pager -->
             <ul class="pager"> 
                 <li class="previous">
                    <%= link_to "← Back to Posts", articles_path %> 
                 </li>  
             </ul>
             <!-- Comments-->
-			<ul id="comments" class="comments">
-			  <% @article.comments.each do |comment|%>
-			    <li class="comment">
-			        <div class="clearfix">
-			            <h4 class="pull-left"><%= comment.author %></h4>
-			            <h5 class="pull-right">Added at: <%= comment.created_at%></h5>
-			        </div>
-			        <p>
-			            <em><%= comment.body %></em>
-			        </p>
-			    </li>
-			    <hr />
-			    <% end %>    
-			</ul>
+      <ul id="comments" class="comments">
+        <% @article.comments.each do |comment|%>
+          <li class="comment">
+              <div class="clearfix">
+                  <h4 class="pull-left"><%= comment.author %></h4>
+                  <h5 class="pull-right">Added at: <%= comment.created_at%></h5>
+              </div>
+              <p>
+                  <em><%= comment.body %></em>
+              </p>
+          </li>
+          <hr />
+          <% end %>    
+      </ul>
 
-			<!-- Add comments -->
-				
-			<div class="panel panel-default">
-			  <div class="panel-body">
-				<%= form_for([@article, @article.comments.build]) do |f| %>
-				 
-		          <div class="col-md-12 form-group clearfix" , style="margin-left: 0">	
-		          <h4 class="lead">Добавить комментарий:</h4>	
-		          	<label class="sr-only" for="name">Comment</label>	
-					<%= f.text_area :body, class: 'form-control', placeholder: 'Comment', style: 'margin-left: 0', rows: 3 %>
-				  </div>
+      <!-- Add comments -->
+        
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <%= form_for([@article, @article.comments.build]) do |f| %>
+         
+              <div class="col-md-12 form-group clearfix" , style="margin-left: 0">  
+              <h4 class="lead">Добавить комментарий:</h4>  
+                <label class="sr-only" for="name">Comment</label>  
+          <%= f.text_area :body, class: 'form-control', placeholder: 'Comment', style: 'margin-left: 0', rows: 3 %>
+          </div>
 
-				  <div class="col-md-12 form-group text-right">
-					<%= f.submit 'Submit', class: 'btn btn-primary btn-md'  %>
-				  </div>
-				<% end %>
-			  </div>
-			</div>
- 		</div>
-
-		<div class="col-md-4 col-sm-4 col-xs-12">
-        	<div class="well text-center">
-         		<p class="lead">
-	            	Don't want to miss updates?  Please click to bellow button!
-	          	</p>
-	          	<button class="btn btn-primary btn-lg">Subscribe to my feed</button>
-	        </div>
-
-	        <div class="panel panel-default">
-	        	<div class="panel-heading">
-	            	<h4>Latest Comments</h4>
-
-	       	</div>
-
-	        <ul class="list-group">
-	          <% @comments.limit(5).each do |c|%>
-              	<li class="list-group-item">
-            	 <%= link_to "#{truncate(c.body, :length => 50, :separator => ' ')}", article_path(c.article_id)%>   - <em><%= c.author%></em>
-
-            	</li>
-              <% end %>
-	        </ul>     
+          <div class="col-md-12 form-group text-right">
+          <%= f.submit 'Submit', class: 'btn btn-primary btn-md'  %>
+          </div>
+        <% end %>
         </div>
-	</div><!—- /.row -—>
+      </div>
+     </div>
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="well text-center">
+             <p class="lead">
+                Don't want to miss updates?  Please click to bellow button!
+              </p>
+              <button class="btn btn-primary btn-lg">Subscribe to my feed</button>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Latest Comments</h4>
+
+           </div>
+
+          <ul class="list-group">
+            <% @comments.limit(5).each do |c|%>
+                <li class="list-group-item">
+               <%= link_to "#{truncate(c.body, :length => 50, :separator => ' ')}", article_path(c.article_id)%>   - <em><%= c.author%></em>
+
+              </li>
+              <% end %>
+          </ul>     
+        </div>
+  </div><!—- /.row -—>
 </div>
