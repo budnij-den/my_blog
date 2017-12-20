@@ -44,6 +44,8 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    @comments = Comment.where("article_id == @article.id")
+    p @comments.class
     @article.destroy
 
     redirect_to articles_path

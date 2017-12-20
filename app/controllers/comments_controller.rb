@@ -13,6 +13,10 @@
     redirect_to article_path(@article)
   end
 
+  def destroy
+    @comments.destroy
+  end
+
   private 
 
   def comment_params
