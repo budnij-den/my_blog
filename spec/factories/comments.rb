@@ -1,4 +1,5 @@
-FactoryGirl.define do
+#FactoryGirl.define do
+FactoryBot.define do
 	factory :comment do
 		author "mike"
 		sequence(:body) { |n| "comment body #{n}"}

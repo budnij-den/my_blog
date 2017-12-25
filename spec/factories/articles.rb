@@ -1,4 +1,5 @@
-FactoryGirl.define do
+#FactoryGirl.define do
+FactoryBot.define do
 	factory :article do
 		title "Article title"
 		text "Article text"
@@ -7,9 +8,9 @@ FactoryGirl.define do
 		# для создания статьи с несколькими комментариями
 		factory :article_with_comments do
 			# после создания article
-			after :create do |article, evaluator|
+			after :create do |art, evaluator|
 				# создаем список из 3-х комментариев
-				create_list :comment, 3, article: article
+				create_list :comment, 3, article: art
 			end
 		end
 	end
